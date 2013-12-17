@@ -1,0 +1,5 @@
+var a,b,c:integer;
+begin
+a:=(-b)*(-c)+(-b)*(-c);
+c:=b
+end.

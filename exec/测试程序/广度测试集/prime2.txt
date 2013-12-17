@@ -1,0 +1,55 @@
+const true=1,false=0;
+var x,y,m,n,pf,t : integer;
+
+procedure prime();
+var i,f,k:integer;
+		procedure mod();
+		begin
+				x:=x-x/y*y
+		end;
+		begin
+			f:=true;
+			k:=m-1;
+			for i:=3 to k do
+				begin
+					x:=m;
+					y:=i;
+					mod();
+					if x=0 then f:=false;
+					i:=i+1;
+				end;
+			if f=true then
+				begin
+					write(m);
+					pf:=true
+				end
+		end;
+		
+		begin
+			pf:=false;
+			write("input x : ");
+			read(n);
+			
+			if n=2 then pf:=true;
+			
+			t:=2;
+			write(t); 
+			for m:=3 to n do
+				begin
+					prime();
+					m:=m+1
+				end;
+			
+			if pf=false then
+				begin
+					m:=0;
+					write(m)
+				end
+			else
+			begin
+				m:=-2;
+				write(m) 
+			end
+			
+		end.
+		

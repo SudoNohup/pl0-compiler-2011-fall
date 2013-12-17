@@ -1,0 +1,19 @@
+var x,y,z,i,a,b,ok:integer;
+begin
+	ok:=1;
+	if ok=1 then	
+		begin
+			a:=1;b:=2
+		end;
+	x:=a;
+	y:=b;
+	for i:=0 to 10 do
+	begin
+		z:=a*10;
+		x:=x+y;
+		if x>z then x:=x-y;
+		y:=y+1;
+	end;
+	write(x);
+	write(y);
+end.

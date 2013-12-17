@@ -1,0 +1,12 @@
+const a='a',m='m';
+var c1,c2:char;tt:integer;
+begin
+read(c1,c2);
+write(c1);
+write(c2);
+if c1>a then
+	if c1<m then begin tt:=c1-a+97;write(tt) end
+else
+	write("invalid");
+end.
+ 

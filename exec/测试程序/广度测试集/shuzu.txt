@@ -1,0 +1,14 @@
+const m=5;
+var b,c,d:integer;a,e:array [10] of integer;
+procedure hello();
+	begin
+		e[8]:=4;
+		write(e[8]);
+		a[2]:=e[8];
+		write(a[2]);
+		c:=a[2];
+		write(c);
+	end;
+begin
+	hello();
+end.

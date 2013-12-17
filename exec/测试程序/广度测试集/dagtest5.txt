@@ -1,0 +1,9 @@
+var x,y,z:integer;
+function mod(var fArg1,fArg2:integer):integer;
+  begin
+    fArg1:=fArg1-fArg1/fArg2*fArg2;
+    mod:=fArg1
+  end;
+begin
+	x:=mod(x,y);
+end.

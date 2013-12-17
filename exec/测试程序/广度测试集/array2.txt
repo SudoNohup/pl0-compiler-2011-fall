@@ -1,0 +1,21 @@
+var a,b : array[10] of integer;
+		i,temp: integer;
+begin
+	for i:=0 to 9 do
+	begin
+		a[i]:=i;
+		temp:=a[i];
+		write(temp)
+	end;
+	for i:=0 to 9 do
+	begin
+		b[a[i]]:=10-i;
+	end;
+	
+	for i:= 0 to 9 do
+	begin
+		temp:=b[i];
+		write(temp)
+	end
+	
+end.

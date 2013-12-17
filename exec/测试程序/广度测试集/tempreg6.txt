@@ -1,0 +1,20 @@
+
+var x,y,g,m:integer;
+    i:integer;
+    a,b:integer;
+function mod(var fArg1,fArg2:integer):integer;
+  begin
+    fArg1:=fArg1-fArg1/fArg2*fArg2;
+    fArg2:=44;
+    write(fArg2);
+    mod:=fArg1
+  end;
+begin
+   write("input x: ");
+   read(x);
+   write("input y: ");
+   read(y);  
+   x:=mod(x,y);
+   write(x);
+   write(y)
+end.

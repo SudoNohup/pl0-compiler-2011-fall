@@ -1,0 +1,17 @@
+const m='r';
+var james,c:integer;
+function proc1(var b,a:integer):integer;
+	procedure proc2();
+			var c,d:integer;
+			begin
+				d:=c;
+			end;
+	begin
+		proc2();
+		proc1:=3;
+	end;
+begin
+	james:=1-proc1(c,m)+3;
+	write(m);
+	write(james)
+end.

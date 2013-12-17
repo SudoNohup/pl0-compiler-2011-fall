@@ -1,0 +1,18 @@
+var a,b:integer;
+procedure swap(m,n:integer);
+	var temp:integer;
+	begin
+	temp:=m;
+	m:=n;
+	n:=temp
+	end;
+begin
+	a:=1;
+	b:=2;
+	write(a);
+	write(b);
+	swap(a,b);
+	write(a);
+	write(b);
+end.
+	

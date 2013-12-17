@@ -1,0 +1,174 @@
+	.386
+	.MODEL FLAT
+
+option	casemap:none
+includelib	msvcrt.lib
+printf	proto C:dword,:vararg
+scanf	proto C:dword,:vararg
+_ftol	proto C:dword
+
+	.STACK	4096
+
+	.DATA
+inint 	DB "%f",0
+outint 	DB "%.0f",0DH,0AH,0
+inchar 	DB " %c",0
+outchar 	DB "%c",0DH,0AH,0
+infloat 	DB "%f",0
+outfloat 	DB "%g",0DH,0AH,0
+string1	DB "function2: ",0DH,0AH,0
+string2	DB "function1: ",0DH,0AH,0
+string3	DB "main: ",0DH,0AH,0
+var1_id	DD 0
+var2_id	DD 0
+
+	.CODE
+_main:
+push	ebp
+mov	ebp,esp
+sub	esp,16
+push	ebx
+push	esi
+push	edi
+mov	eax,1084227584
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr var1_id
+mov	eax,1086324736
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr var2_id
+fld	dword ptr var2_id
+fadd	dword ptr var1_id
+fstp	dword ptr [ebp-4]
+mov	eax,1086324736
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+mov	eax,1084227584
+mov	dword ptr [ebp-16],eax
+fmul	dword ptr [ebp-16]
+fstp	dword ptr [ebp-8]
+fld	dword ptr [ebp-4]
+fsub	dword ptr [ebp-8]
+fstp	dword ptr [ebp-12]
+push	dword ptr [ebp-12]
+call	function1_id
+add	esp,4
+lea	ecx,string3
+push	ecx
+call	printf
+add	esp,4
+fld	dword ptr var1_id
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+fld	dword ptr var2_id
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+F_flag3:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+
+function2_id	PROC near32
+push	ebp
+mov	ebp,esp
+sub	esp,16
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-4],eax
+mov	eax,1077936128
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-8]
+mov	eax,1082130432
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-12]
+lea	ecx,string1
+push	ecx
+call	printf
+add	esp,4
+fld	dword ptr [ebp-8]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+fld	dword ptr [ebp-12]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+F_flag1:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+function2_id	 ENDP
+
+function1_id	PROC near32
+push	ebp
+mov	ebp,esp
+sub	esp,16
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-4],eax
+mov	eax,1065353216
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-8]
+mov	eax,1073741824
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-12]
+lea	ecx,string2
+push	ecx
+call	printf
+add	esp,4
+fld	dword ptr [ebp-8]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+fld	dword ptr [ebp-12]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+push	dword ptr function2_id
+call	function2_id
+add	esp,4
+F_flag2:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+function1_id	 ENDP
+	END	_main
+

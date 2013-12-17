@@ -1,0 +1,10 @@
+var a:char;
+begin
+	read(a);
+	case a of
+	'a','b':
+		write("ab");
+	'c':
+		write("c")
+	end
+end.

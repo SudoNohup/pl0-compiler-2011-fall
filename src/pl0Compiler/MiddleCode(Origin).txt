@@ -1,0 +1,34 @@
+Begin	0		
+:=	1		ok
+=	ok	1	#t1
+IfFalse	#t1	@flag_flag1	
+:=	1		a
+:=	2		b
+JmpTo	@flag_flag2		
+SetFlag	@flag_flag1		
+SetFlag	@flag_flag2		
+:=	a		x
+:=	b		y
+:=	0		i
+SetFlag	@flag_flag3		
+<=	i	10	#t2
+IfFalse	#t2	@flag_flag4	
+*	a	10	#t3
+:=	#t3		z
++	x	y	#t4
+:=	#t4		x
+>	x	z	#t5
+IfFalse	#t5	@flag_flag5	
+-	x	y	#t6
+:=	#t6		x
+JmpTo	@flag_flag6		
+SetFlag	@flag_flag5		
+SetFlag	@flag_flag6		
++	y	1	#t7
+:=	#t7		y
++	i	1	i
+JmpTo	@flag_flag3		
+SetFlag	@flag_flag4		
+WriteExpression	x		
+WriteExpression	y		
+End	0		

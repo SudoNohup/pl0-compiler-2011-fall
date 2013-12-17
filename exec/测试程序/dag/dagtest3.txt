@@ -1,0 +1,11 @@
+var a,b,c,y:integer;
+begin
+	a:=b*c+b*c;
+	b:=c;
+	y:=9;
+	write(a);
+	a:=b*c;
+	a:=b;
+	a:=a*c;
+	write(y);
+end.

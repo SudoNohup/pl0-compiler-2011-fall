@@ -1,0 +1,40 @@
+const true=1,false=0;
+var x,y,m,n,pf:integer;
+
+procedure prime();
+	var i,f:integer;
+	procedure mod();
+	begin
+		x:=x-x/y*y
+	end;
+	begin
+		f:=true;
+		for i:=3 to m-1 do
+		begin
+			x:=m;
+			y:=i;
+			mod();
+			if x=0 then f:=false;
+			i:=i+1
+		end;
+		if f=true then
+		begin
+			write(m);
+			pf:=true
+		end
+	end;
+begin
+	pf:=false;
+	n:=100;
+	begin
+		if n=2 then 
+		begin pf:=true;write(n) end;
+		for m:=3 to n do
+		begin
+			prime();
+			m:=m+1;
+		end;
+	end;
+	if pf=false then write(0)
+end.
+

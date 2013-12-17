@@ -1,0 +1,14 @@
+var result,n:integer;
+function fib(k:integer):integer;
+begin
+	if k=0 then fib:=0
+	else if k=1 then fib:=1
+	else fib:=fib(k-1)+fib(k-2)
+end;
+begin
+	write("Please enter:n");
+	read(n);
+	write("Fib(n) is: ");
+	result:=fib(n);
+	write(result)
+end.

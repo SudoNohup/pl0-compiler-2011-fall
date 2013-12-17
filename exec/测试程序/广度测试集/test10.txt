@@ -1,0 +1,5 @@
+var a:integer;
+begin
+	a:=44;
+  if 1 write(a)
+end.

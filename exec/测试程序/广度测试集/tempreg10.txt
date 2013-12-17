@@ -1,0 +1,46 @@
+
+var x,y,g,m,z:integer;
+    i:integer;
+    a,b:integer;
+    xarray,yarray: array [3] of integer;
+function mymod(var fArg1,fArg2:integer):integer;
+  begin
+    fArg1:=fArg1-fArg1/fArg2*fArg2;
+    mymod:=fArg1
+  end;
+begin
+  xarray[0]:=3;
+  yarray[0]:=5;
+  xarray[1]:=5;
+  yarray[1]:=3;
+  xarray[2]:=3;
+  yarray[2]:=3;
+  for i:=3 downto 1 do
+  begin
+   x:=xarray[3-i];
+   y:=yarray[3-i];
+   z:=mymod(x,y);
+   write(" x mod y is ",x);
+   write(" choice 1 2 3 ");
+  end
+end.
+
+说明：
+（1）包含的语法成分：程序 分程序 常量说明部分 常量定义 常量 字符串 无符号整数 标识符 变量说明部分 变量说明 类型标识符（只有integer，无char和real） 过程说明部分 函数说明部分 过程首部（无形参） 函数首部（形参为integer型，返回值为integer型） 形式参数表 形式参数段 语句 赋值语句 函数标识符 表达式 项 因子 函数调用语句 实在参数表 实在参数 加法运算符（无＋） 乘法运算符 条件 关系运算符（只有<>） 当循环语句 过程调用语句 复合语句 写语句 字母 数字
+     未包含的语法成分：字符 无符号实数 条件语句 for循环语句 读语句
+（2）结构：无嵌套语句和子程序
+（3）x mod y is 3   （1分）
+     choice 1 2 3   1  
+     good   （1分）
+     
+     x mod y is  2  （1分）
+     choice 1 2 3   2 
+     better  （1分）
+    
+
+     x mod y is 0  （1分）
+     choice 1 2 3   4
+     best  （1分）
+
+ (4) downto 写成 down，报错  （1分）
+     没有参数的函数不带小括号，报错（1分）

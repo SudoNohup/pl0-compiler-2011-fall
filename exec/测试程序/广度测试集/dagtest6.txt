@@ -1,0 +1,7 @@
+var x,y,z:integer;
+function mod(var fArg1,fArg2:integer):integer;
+begin
+end;
+begin
+	x:=mod(x,y);
+end.

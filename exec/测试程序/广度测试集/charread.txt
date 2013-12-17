@@ -1,0 +1,7 @@
+var a,b,c:char;
+begin
+	read(a,b,c);
+	write(a);
+	write(b);
+	write(c+b);
+end.

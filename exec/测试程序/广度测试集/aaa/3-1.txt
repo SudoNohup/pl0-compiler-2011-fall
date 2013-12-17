@@ -1,0 +1,211 @@
+	.386
+	.MODEL FLAT
+
+option	casemap:none
+includelib	msvcrt.lib
+printf	proto C:dword,:vararg
+scanf	proto C:dword,:vararg
+_ftol	proto C:dword
+
+	.STACK	4096
+
+	.DATA
+inint 	DB "%f",0
+outint 	DB "%.0f",0DH,0AH,0
+inchar 	DB " %c",0
+outchar 	DB "%c",0DH,0AH,0
+infloat 	DB "%f",0
+outfloat 	DB "%g",0DH,0AH,0
+string1	DB "function2: ",0DH,0AH,0
+string2	DB "function1: ",0DH,0AH,0
+string3	DB "main: ",0DH,0AH,0
+var1_id	DD 0
+var2_id	DD 0
+
+	.CODE
+_main:
+
+;Begin	Main		
+push	ebp
+mov	ebp,esp
+sub	esp,4
+push	ebx
+push	esi
+push	edi
+
+;=	5		var1
+mov	eax,1084227584
+mov	dword ptr [ebp-4],eax
+fld	dword ptr [ebp-4]
+fstp	dword ptr var1_id
+
+;=	6		var2
+mov	eax,1086324736
+mov	dword ptr [ebp-4],eax
+fld	dword ptr [ebp-4]
+fstp	dword ptr var2_id
+
+;value=	var1	b	function1
+push	dword ptr var1_id
+
+;Call	function1		
+call	function1_id
+add	esp,4
+
+;WriteString	string3		
+lea	ecx,string3
+push	ecx
+call	printf
+add	esp,4
+
+;WriteExpression	var1		
+fld	dword ptr var1_id
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;WriteExpression	var2		
+fld	dword ptr var2_id
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;End	Main		
+F_flag3:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+
+function2_id	PROC near32
+
+;Begin	function2		
+push	ebp
+mov	ebp,esp
+sub	esp,16
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-4],eax
+
+;ConstDefine	va1	3	
+mov	eax,1077936128
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-8]
+
+;ConstDefine	va2	4	
+mov	eax,1082130432
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-12]
+
+;WriteString	string1		
+lea	ecx,string1
+push	ecx
+call	printf
+add	esp,4
+
+;WriteExpression	va1		
+fld	dword ptr [ebp-8]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;WriteExpression	va2		
+fld	dword ptr [ebp-12]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;End	function2		
+F_flag1:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+function2_id	 ENDP
+
+function1_id	PROC near32
+
+;Begin	function1		
+push	ebp
+mov	ebp,esp
+sub	esp,16
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-4],eax
+
+;ConstDefine	vr1	1	
+mov	eax,1065353216
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-8]
+
+;ConstDefine	vr2	2	
+mov	eax,1073741824
+mov	dword ptr [ebp-16],eax
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-12]
+
+;WriteString	string2		
+lea	ecx,string2
+push	ecx
+call	printf
+add	esp,4
+
+;WriteExpression	vr1		
+fld	dword ptr [ebp-8]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;WriteExpression	vr2		
+fld	dword ptr [ebp-12]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;value=	vr1	a	function2
+push	dword ptr function2_id
+
+;Call	function2		
+call	function2_id
+add	esp,4
+
+;End	function1		
+F_flag2:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+function1_id	 ENDP
+	END	_main
+

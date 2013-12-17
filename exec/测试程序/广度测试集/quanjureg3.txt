@@ -1,0 +1,7 @@
+var a,b,c:integer;
+begin
+b:=1;
+c:=2;
+a:=(-b)*(-c)+(-b)*(-c);
+write(a);
+end.

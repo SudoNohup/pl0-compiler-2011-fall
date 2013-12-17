@@ -1,0 +1,19 @@
+var a,b:integer;c:array [10] of integer;
+procedure swap(var m,n:integer);
+	var temp:integer;
+	begin
+	temp:=m;
+	m:=n;
+	n:=temp
+	end;
+begin
+	a:=1;
+	b:=2;
+	c[3]:=4;
+	write(a);
+	write(c[3]);
+	swap(a,c[3]);
+	write(a);
+	write(c[3]);
+end.
+	

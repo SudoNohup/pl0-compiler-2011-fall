@@ -1,0 +1,47 @@
+var a:array [20] of integer;
+procedure quicksort(m,n:integer);
+	var i,j,v,x,tmpai,tmpaj,t:integer;
+	begin
+		if m<n then
+		begin
+			i:=m-1;j:=n;v:=a[n];
+			for t:=1 to 10 do
+			begin
+				i:=i+1;
+				for tmpai:=a[i] to v-1 do
+				begin
+					i:=i+1;
+					tmpai:=a[i];
+					tmpai:=tmpai-1;
+				end;
+				j:=j-1;
+				for tmpaj:=a[j] downto v+1 do
+				begin
+					j:=j-1;
+					tmpaj:=a[j];
+					tmpaj:=tmpaj-1;
+				end;
+				if i>=j then t:=100 else t:=t-1;
+				x:=a[i];a[i]:=a[j];a[j]:=x;
+			end;
+			x:=a[i];a[i]:=a[n];a[n]:=x;
+			quicksort(m,j);quicksort(i+1,n);
+		end;
+	end;
+begin
+	a[0]:=3;
+	a[1]:=1;
+	a[2]:=4;
+	a[3]:=5;
+	a[4]:=9;
+	a[5]:=0;
+	quicksort(0,5);
+	write(a[0]);
+	write(a[1]);
+	write(a[2]);
+	write(a[3]);
+	write(a[4]);
+end.
+			
+			
+	

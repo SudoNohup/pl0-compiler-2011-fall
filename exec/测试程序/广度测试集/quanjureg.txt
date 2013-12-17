@@ -1,0 +1,5 @@
+var k,i,j:integer;
+begin
+	if k<1 then i:=k+1 else j:=k+2;
+	if k>2 then write(i) else write(j)
+end.

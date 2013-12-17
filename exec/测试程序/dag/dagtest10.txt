@@ -1,0 +1,8 @@
+var a,b:integer;c:array [10] of integer;
+begin
+	b:=3;c[3]:=4;
+	a:=(-b)*(-c[3])+(-b)*(-c[3]);
+	c[3]:=b;
+	write(c[3]);
+	write(a);
+end.

@@ -1,0 +1,9 @@
+var choice:integer;
+begin
+	read(choice);
+	case choice of
+		1,2:write("12");
+		3:write("3")
+	end;
+	write(choice)
+end.

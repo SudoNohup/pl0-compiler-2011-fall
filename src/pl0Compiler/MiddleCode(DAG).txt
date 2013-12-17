@@ -1,0 +1,33 @@
+DAGCode
+Begin	0		
+:=	1		ok
+=false	ok	1	@flag_flag1
+:=	2		b
+:=	1		a
+SetFlag	@flag_flag1		
+:=	a		a_0
+:=	b		b_0
+:=	0		i
+:=	b_0		y
+:=	a_0		x
+SetFlag	@flag_flag3		
+<=false	i	10	@flag_flag4
+:=	a		a_0
+:=	x		x_0
+:=	y		y_0
++	x_0	y	x
+*	a	10	z
+>false	x	z	@flag_flag5
+:=	x		x_0
+:=	y		y_0
+-	x_0	y	x
+SetFlag	@flag_flag5		
+:=	y		y_0
+:=	i		i_0
++	i_0	1	i
++	y_0	1	y
+JmpTo	@flag_flag3		
+SetFlag	@flag_flag4		
+WriteExpression	x		
+WriteExpression	y		
+End	0		

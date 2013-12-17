@@ -1,0 +1,16 @@
+
+var x,y,g,m:integer;
+    i:integer;
+    a,b:integer;
+begin
+  for i:=3 downto 1 do
+  begin
+   write("input x: ");
+   read(x);
+   write("input y: ");
+   read(y);  
+  
+   x:=x-x/y*y;
+   write("x mod y = ",x)   
+  end
+end.

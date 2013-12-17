@@ -1,0 +1,26 @@
+Block1:
+	In	a b 
+	Out	a b 
+Block2:
+	In	
+	Out	a b 
+Block3:
+	In	a b 
+	Out	i a x y 
+Block4:
+	In	i a x y 
+	Out	a x y i 
+Block5:
+	In	a x y i 
+	Out	x y i a 
+Block6:
+	In	x y i a 
+	Out	y i a x 
+Block7:
+	In	y i a x 
+	Out	i a x y 
+Block8:
+	In	x y 
+	Out	
+所有跨越基本块的活跃变量
+a b i x y 

@@ -1,0 +1,15 @@
+var a,b,c:integer;
+function fun1(x,y:integer)
+	begin
+		fun1=x+y
+	end
+function fun2(x,y:integer)
+	begin
+		fun2:=x+y
+	end
+begin
+	a:=1;
+	b:=2;
+	c:=3;
+	write(fun1(fun2(a,b),c))
+end

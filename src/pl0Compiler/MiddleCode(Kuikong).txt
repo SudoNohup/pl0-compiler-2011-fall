@@ -1,0 +1,28 @@
+窥孔优化后的中间代码如下：
+Begin	0		
+:=	1		ok
+=false	ok	1	@flag_flag1
+:=	1		a
+:=	2		b
+SetFlag	@flag_flag1		
+:=	a		x
+:=	b		y
+:=	0		i
+SetFlag	@flag_flag3		
+<=false	i	10	@flag_flag4
+*	a	10	#t3
+:=	#t3		z
++	x	y	#t4
+:=	#t4		x
+>false	x	z	@flag_flag5
+-	x	y	#t6
+:=	#t6		x
+SetFlag	@flag_flag5		
++	y	1	#t7
+:=	#t7		y
++	i	1	i
+JmpTo	@flag_flag3		
+SetFlag	@flag_flag4		
+WriteExpression	x		
+WriteExpression	y		
+End	0		

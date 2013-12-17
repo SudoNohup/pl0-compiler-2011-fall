@@ -1,0 +1,5 @@
+var a:array [10] of integer;
+begin
+	a[11]:=1;
+	write("a[11]ÊÇ",a[11]);
+end.

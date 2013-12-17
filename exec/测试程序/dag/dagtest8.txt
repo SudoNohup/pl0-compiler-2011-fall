@@ -1,0 +1,5 @@
+var i,b:integer;
+begin
+	i:=4;
+	b:=4;
+end.

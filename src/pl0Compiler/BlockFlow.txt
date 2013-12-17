@@ -1,0 +1,24 @@
+BaseBlock1:
+	in	
+	out	2 3 
+BaseBlock2:
+	in	1 
+	out	3 
+BaseBlock3:
+	in	1 2 
+	out	4 
+BaseBlock4:
+	in	3 7 
+	out	5 8 
+BaseBlock5:
+	in	4 
+	out	6 7 
+BaseBlock6:
+	in	5 
+	out	7 
+BaseBlock7:
+	in	5 6 
+	out	4 
+BaseBlock8:
+	in	4 
+	out	

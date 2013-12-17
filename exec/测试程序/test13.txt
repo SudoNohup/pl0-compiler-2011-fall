@@ -1,0 +1,12 @@
+var x,y,z,i,a,b:integer;
+begin
+	x:=a;
+	y:=b;
+	for i:=0 to 100 do
+	begin
+		z:=a*10;
+		x:=x+y;
+		if x>z then x:=x-y;
+		y:=y+1;
+	end
+end.

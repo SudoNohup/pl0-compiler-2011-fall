@@ -1,0 +1,11 @@
+var a,b,c,m,y;
+begin
+	a:=b*c+b*c;
+	b:=c;
+	y:=9+3-4;
+	write(a);
+	a:=b*c;
+	a:=b;
+	a:=a*c;
+	write(a);
+end.

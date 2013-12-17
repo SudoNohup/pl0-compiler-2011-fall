@@ -1,0 +1,22 @@
+const a='a',m='m';
+var x,y:char;
+begin
+	read(x,y);
+	write(x);
+	write(y);
+	if y=m  then write("1")
+	else write("0")
+end.
+
+
+const a='a',m='m';
+var c1,c2:integer;
+read(c1,c2);
+write(c1);
+write(c2);
+if c1>a then
+ if c1<m then 
+	after m
+	tt=c1-a+97;
+	asc is 
+ 

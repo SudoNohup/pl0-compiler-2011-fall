@@ -1,0 +1,15 @@
+var result,n:integer;
+function a():integer;
+begin
+end;
+function fib(var k:integer):integer;
+begin
+	if k=0 then fib:=0
+	else if k=1 then fib:=1
+	else fib:=fib(k-1)+fib(k-2)
+end;
+begin
+	n:=5;
+	result:=fib(n);
+	write(result)
+end.

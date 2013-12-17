@@ -1,0 +1,4 @@
+var a:char;
+begin
+	read(a)
+end.

@@ -1,0 +1,41 @@
+	.386
+	.MODEL FLAT
+
+option	casemap:none
+includelib	msvcrt.lib
+printf	proto C:dword,:vararg
+scanf	proto C:dword,:vararg
+_ftol	proto C:dword
+
+	.STACK	4096
+
+	.DATA
+inint 	DB "%f",0
+outint 	DB "%.0f",0DH,0AH,0
+inchar 	DB " %c",0
+outchar 	DB "%c",0DH,0AH,0
+infloat 	DB "%f",0
+outfloat 	DB "%g",0DH,0AH,0
+string1	DB "HelleWorld",0DH,0AH,0
+
+	.CODE
+_main:
+push	ebp
+mov	ebp,esp
+sub	esp,4
+push	ebx
+push	esi
+push	edi
+lea	ecx,string1
+push	ecx
+call	printf
+add	esp,4
+F_flag1:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+	END	_main
+

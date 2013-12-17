@@ -1,0 +1,428 @@
+	.386
+	.MODEL FLAT
+
+option	casemap:none
+includelib	msvcrt.lib
+printf	proto C:dword,:vararg
+scanf	proto C:dword,:vararg
+_ftol	proto C:dword
+
+	.STACK	4096
+
+	.DATA
+inint 	DB "%f",0
+outint 	DB "%.0f",0DH,0AH,0
+inchar 	DB " %c",0
+outchar 	DB "%c",0DH,0AH,0
+infloat 	DB "%f",0
+outfloat 	DB "%g",0DH,0AH,0
+string1	DB "Input three numbers: ",0DH,0AH,0
+string2	DB "the max : ",0DH,0AH,0
+string3	DB "the base: ",0DH,0AH,0
+string4	DB "the step: ",0DH,0AH,0
+string5	DB "the number: ",0DH,0AH,0
+string6	DB "the result: ",0DH,0AH,0
+string7	DB "input the choice: 1 2 3 , 0 for return ",0DH,0AH,0
+string8	DB "good ",0DH,0AH,0
+string9	DB "better ",0DH,0AH,0
+string10	DB "best ",0DH,0AH,0
+string11	DB "error ",0DH,0AH,0
+const1_id	DD 1065353216
+const2_id	DD -1027080192
+const3_id	DD 1123418112
+const4_id	DD -1012891648
+var1_id	DD 0
+var2_id	DD 0
+var3_id	DD 0
+var4_id	DD 0
+
+	.CODE
+_main:
+
+;Begin	Main		
+push	ebp
+mov	ebp,esp
+sub	esp,60
+push	ebx
+push	esi
+push	edi
+
+;VarDefine	cast1		
+
+;VarDefine	cast3		
+
+;VarDefine	cast5		
+
+;VarDefine	re1		
+
+;WriteString	string1		
+lea	ecx,string1
+push	ecx
+call	printf
+add	esp,4
+
+;Read	cast2		
+lea	eax,dword ptr [ebp-8]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+
+;value=	cast1	va1	max
+push	dword ptr [ebp-4]
+
+;value=	cast3	va3	max
+push	dword ptr [ebp-12]
+
+;=	#t10		var1
+fld	dword ptr [ebp-36]
+fstp	dword ptr var1_id
+
+;WriteExpression	var1		
+fld	dword ptr var1_id
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;Read	cast4		
+lea	eax,dword ptr [ebp-16]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+
+;Read	cast5		
+lea	eax,dword ptr [ebp-20]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+
+;Read	cast6		
+lea	eax,dword ptr [ebp-24]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+
+;value=	cast5	step	add1
+push	dword ptr [ebp-20]
+
+;CallValue	add1		#t11
+call	add1_id
+add	esp,12
+mov	dword ptr [ebp-40],eax
+
+;WriteString	string6		
+lea	ecx,string6
+push	ecx
+call	printf
+add	esp,4
+
+;WriteString	string7		
+lea	ecx,string7
+push	ecx
+call	printf
+add	esp,4
+
+;SetFlag	flag_flag9		
+flag_flag9:
+
+;IfFalse	#t12	flag_flag10	
+cmp	dword ptr [ebp-44],0
+je	flag_flag10
+
+;IfFalse	#t13	flag_flag12	
+cmp	dword ptr [ebp-48],0
+je	flag_flag12
+
+;Loop	flag_flag11		
+jmp	flag_flag11
+
+;==	choice	2	#t14
+fld	dword ptr [ebp-32]
+mov	eax,1073741824
+mov	dword ptr [ebp-60],eax
+fcomp	dword ptr [ebp-60]
+fnstsw	ax
+test	ah,40h
+mov	dword ptr [ebp-52],0
+je	judge_flag1
+mov	dword ptr [ebp-52],1065353216
+judge_flag1:
+
+;WriteString	string9		
+lea	ecx,string9
+push	ecx
+call	printf
+add	esp,4
+
+;SetFlag	flag_flag13		
+flag_flag13:
+
+;IfFalse	#t15	flag_flag14	
+cmp	dword ptr [ebp-56],0
+je	flag_flag14
+
+;Loop	flag_flag11		
+jmp	flag_flag11
+
+;WriteString	string11		
+lea	ecx,string11
+push	ecx
+call	printf
+add	esp,4
+
+;Read	choice		
+lea	eax,dword ptr [ebp-32]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+
+;SetFlag	flag_flag10		
+flag_flag10:
+
+;End	Main		
+F_flag3:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+
+max_id	PROC near32
+
+;Begin	max		
+push	ebp
+mov	ebp,esp
+sub	esp,44
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+16]
+mov	dword ptr [ebp-4],eax
+mov	eax,dword ptr [ebp+12]
+mov	dword ptr [ebp-8],eax
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-12],eax
+
+;VarDefine	del1		
+
+;>=	va1	va2	#t1
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-8]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-20],0
+jne	judge_flag2
+mov	dword ptr [ebp-20],1065353216
+judge_flag2:
+
+;IfFalse	#t1	flag_flag1	
+cmp	dword ptr [ebp-20],0
+je	flag_flag1
+
+;>=	va1	va3	#t2
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-24],0
+jne	judge_flag3
+mov	dword ptr [ebp-24],1065353216
+judge_flag3:
+
+;IfFalse	#t2	flag_flag2	
+cmp	dword ptr [ebp-24],0
+je	flag_flag2
+
+;=	va1		del1
+fld	dword ptr [ebp-4]
+fstp	dword ptr [ebp-16]
+
+;SetFlag	flag_flag2		
+flag_flag2:
+
+;<	va1	va3	#t3
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-28],0
+je	judge_flag4
+mov	dword ptr [ebp-28],1065353216
+judge_flag4:
+
+;IfFalse	#t3	flag_flag3	
+cmp	dword ptr [ebp-28],0
+je	flag_flag3
+
+;=	va3		del1
+fld	dword ptr [ebp-12]
+fstp	dword ptr [ebp-16]
+
+;SetFlag	flag_flag3		
+flag_flag3:
+
+;SetFlag	flag_flag1		
+flag_flag1:
+
+;<	va1	va2	#t4
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-8]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-32],0
+je	judge_flag5
+mov	dword ptr [ebp-32],1065353216
+judge_flag5:
+
+;IfFalse	#t4	flag_flag4	
+cmp	dword ptr [ebp-32],0
+je	flag_flag4
+
+;>=	va2	va3	#t5
+fld	dword ptr [ebp-8]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-36],0
+jne	judge_flag6
+mov	dword ptr [ebp-36],1065353216
+judge_flag6:
+
+;IfFalse	#t5	flag_flag5	
+cmp	dword ptr [ebp-36],0
+je	flag_flag5
+
+;=	va2		del1
+fld	dword ptr [ebp-8]
+fstp	dword ptr [ebp-16]
+
+;SetFlag	flag_flag5		
+flag_flag5:
+
+;<	va2	va3	#t6
+fld	dword ptr [ebp-8]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-40],0
+je	judge_flag7
+mov	dword ptr [ebp-40],1065353216
+judge_flag7:
+
+;IfFalse	#t6	flag_flag6	
+cmp	dword ptr [ebp-40],0
+je	flag_flag6
+
+;=	va3		del1
+fld	dword ptr [ebp-12]
+fstp	dword ptr [ebp-16]
+
+;SetFlag	flag_flag6		
+flag_flag6:
+
+;SetFlag	flag_flag4		
+flag_flag4:
+
+;Return	del1		
+mov	eax,dword ptr [ebp-16]
+jmp	F_flag1
+
+;End	max		
+F_flag1:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+max_id	 ENDP
+
+add1_id	PROC near32
+
+;Begin	add1		
+push	ebp
+mov	ebp,esp
+sub	esp,28
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+16]
+mov	dword ptr [ebp-4],eax
+mov	eax,dword ptr [ebp+12]
+mov	dword ptr [ebp-8],eax
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-12],eax
+
+;SetFlag	flag_flag7		
+flag_flag7:
+
+;>	n	0	#t7
+fld	dword ptr [ebp-12]
+mov	eax,0
+mov	dword ptr [ebp-28],eax
+fcomp	dword ptr [ebp-28]
+fnstsw	ax
+test	ah,41h
+mov	dword ptr [ebp-16],0
+jne	judge_flag8
+mov	dword ptr [ebp-16],1065353216
+judge_flag8:
+
+;IfFalse	#t7	flag_flag8	
+cmp	dword ptr [ebp-16],0
+je	flag_flag8
+
+;+	base	step	#t8
+fld	dword ptr [ebp-4]
+fadd	dword ptr [ebp-8]
+fstp	dword ptr [ebp-20]
+
+;=	#t8		base
+fld	dword ptr [ebp-20]
+fstp	dword ptr [ebp-4]
+
+;-	n	1	#t9
+fld	dword ptr [ebp-12]
+mov	eax,1065353216
+mov	dword ptr [ebp-28],eax
+fsub	dword ptr [ebp-28]
+fstp	dword ptr [ebp-24]
+
+;=	#t9		n
+fld	dword ptr [ebp-24]
+fstp	dword ptr [ebp-12]
+
+;Loop	flag_flag7		
+jmp	flag_flag7
+
+;SetFlag	flag_flag8		
+flag_flag8:
+
+;Return	base		
+mov	eax,dword ptr [ebp-4]
+jmp	F_flag2
+
+;End	add1		
+F_flag2:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+add1_id	 ENDP
+	END	_main
+

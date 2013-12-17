@@ -1,0 +1,65 @@
+const a='a', m='m', A='A',M='M';
+var c1,c2:char;
+    i1,i2,i3:integer;
+    ordc1,i:integer;
+
+begin
+  i1:=1;
+  i2:=2;
+  for i:=1 to 5 do
+  begin
+    write(" Please input two letters ");
+    read(c1,c2);
+    if c1>=a then
+      if c1<=m then
+        begin
+          ordc1 := c1-a+97;
+          write(" The ASCII of c1 is ",ordc1)
+        end
+      else
+        write(" The first letter is after m ")
+    else
+      if c1>=A then
+        if c1<=M then     
+          begin 
+            ordc1 := c1-A+65;
+            write(" The ASCII of c1 is ",ordc1)
+          end
+        else
+          write(" The first letter is after M ")
+      else
+        write(" The letter you input is invalid ");
+    if c1<=c2 then
+      i3:=(a*i1+m*i2)/(a+m)
+    else
+      i3:=(a*i2+m*i1)/(a-m);
+    write(" The result is ",i3)
+  end
+end.
+说明：
+（1）包含的语法成分：程序 分程序 字符 无符号实数 字符串 无符号整数 标识符 变量说明部分 变量说明 类型标识符 语句 赋值语句 表达式 项 因子 加法运算符 乘法运算符 条件 关系运算符（有>=和<=和<）条件语句  复合语句 读语句 写语句 字母 数字
+     未包含的语法成分：常量说明部分 常量定义 常量 过程说明部分 函数说明部分 过程首部 函数首部 形式参数表 形式参数段 函数标识符 函数调用语句 实在参数表 实在参数 当循环语句 for循环语句 过程调用语句
+（2）结构：有嵌套语句 无嵌套子程序
+（3）输入：两个字母
+     输出：第一个字母的ASCII码以及根据比较两字母大小而得出的整数四则运算结果
+       Please input two letters we
+       The first letter is after m  （1分）
+       The result is -25            （1分）
+
+       Please input two letters ew  
+       The ASCII of c1 is 101        （1分）
+       The result is 1                （1分）
+
+       Please input two letters WE
+       The first letter is after M    （1分）
+       The result is -25 
+
+       Please input two letters EW
+       The ASCII of c1 is 69           （1分）
+       The result is 1 
+
+       Please input two letters 12
+      The letter you input is invalid  （0.5分）
+      The result is 1                  （0.5分）
+ （4）在表达式中出现字符常量，报错（0.5分）  
+      多个常量声明之间用分号隔开，报错（0.5分）

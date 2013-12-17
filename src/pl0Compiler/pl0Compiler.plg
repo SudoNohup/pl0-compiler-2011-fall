@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: pl0Compiler - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\huang\AppData\Local\Temp\RSP2C83.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/pl0Compiler.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\huang\Desktop\编译课设\2011课程设计\39061416_黄建宇_申优\源代码\pl0Compiler\main.cpp"
+]
+Creating command line "cl.exe @C:\Users\huang\AppData\Local\Temp\RSP2C83.tmp" 
+Creating temporary file "C:\Users\huang\AppData\Local\Temp\RSP2C84.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/pl0Compiler.pdb" /debug /machine:I386 /out:"Debug/pl0Compiler.exe" /pdbtype:sept 
+".\Debug\ASMGenerator.obj"
+".\Debug\BaseBlock.obj"
+".\Debug\ConflictGraph.obj"
+".\Debug\DAG.obj"
+".\Debug\DAGCode.obj"
+".\Debug\ErrorHandler.obj"
+".\Debug\Kuikong.obj"
+".\Debug\Lexer.obj"
+".\Debug\main.obj"
+".\Debug\MiddleCode.obj"
+".\Debug\OptASMGenerator.obj"
+".\Debug\OptCode.obj"
+".\Debug\Parser.obj"
+".\Debug\SymbolTable.obj"
+".\Debug\tempCode.obj"
+]
+Creating command line "link.exe @C:\Users\huang\AppData\Local\Temp\RSP2C84.tmp"
+<h3>Output Window</h3>
+Compiling...
+main.cpp
+c:\program files\microsoft visual studio\vc98\include\xlocale(467) : warning C4786: 'std::reverse_iterator<std::deque<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::allocator<std::basic_string<char,std::char_traits<char>,std::allocator<char> > > >::const_iterator,std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > const &,std::basic_string<char,std::char_traits<char>,std::allocator<char> > const *,int>' : identifier was truncated to '255' characters in the debug information
+c:\program files\microsoft visual studio\vc98\include\xlocale(467) : warning C4786: 'std::reverse_iterator<std::deque<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::allocator<std::basic_string<char,std::char_traits<char>,std::allocator<char> > > >::iterator,std::basic_string<char,std::char_traits<char>,std::allocator<char> >,std::basic_string<char,std::char_traits<char>,std::allocator<char> > &,std::basic_string<char,std::char_traits<char>,std::allocator<char> > *,int>' : identifier was truncated to '255' characters in the debug information
+Linking...
+
+
+
+<h3>Results</h3>
+pl0Compiler.exe - 0 error(s), 2 warning(s)
+</pre>
+</body>
+</html>

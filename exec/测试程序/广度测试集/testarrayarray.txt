@@ -1,0 +1,8 @@
+var abc:array [10] of integer;a:integer;
+begin
+	abc[3]:=3;
+	write(abc[3]);
+	a:=abc[3];
+	write(a);
+end.
+	

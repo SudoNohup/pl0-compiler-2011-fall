@@ -1,0 +1,6 @@
+const char a='a';
+void main()
+{
+	char b;
+	scanf(b);
+}

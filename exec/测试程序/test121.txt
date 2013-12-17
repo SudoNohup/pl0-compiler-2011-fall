@@ -1,0 +1,4 @@
+var a,b,c,d,e,t:integer;
+begin
+t:=a+b-(e-(c+d))
+end.

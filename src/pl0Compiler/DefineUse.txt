@@ -1,0 +1,24 @@
+Block1:
+	use	
+	define	ok 
+Block2:
+	use	
+	define	b a 
+Block3:
+	use	a b 
+	define	a_0 b_0 i y x 
+Block4:
+	use	i 
+	define	
+Block5:
+	use	a x y 
+	define	a_0 x_0 y_0 z 
+Block6:
+	use	x y 
+	define	x_0 y_0 
+Block7:
+	use	y i 
+	define	y_0 i_0 
+Block8:
+	use	x y 
+	define	

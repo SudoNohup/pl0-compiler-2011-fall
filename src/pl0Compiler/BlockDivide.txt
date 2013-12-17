@@ -1,0 +1,32 @@
+1	Begin	0		
+1	:=	1		ok
+1	=false	ok	1	@flag_flag1
+2	:=	2		b
+2	:=	1		a
+3	SetFlag	@flag_flag1		
+3	:=	a		a_0
+3	:=	b		b_0
+3	:=	0		i
+3	:=	b_0		y
+3	:=	a_0		x
+4	SetFlag	@flag_flag3		
+4	<=false	i	10	@flag_flag4
+5	:=	a		a_0
+5	:=	x		x_0
+5	:=	y		y_0
+5	+	x_0	y	x
+5	*	a	10	z
+5	>false	x	z	@flag_flag5
+6	:=	x		x_0
+6	:=	y		y_0
+6	-	x_0	y	x
+7	SetFlag	@flag_flag5		
+7	:=	y		y_0
+7	:=	i		i_0
+7	+	i_0	1	i
+7	+	y_0	1	y
+7	JmpTo	@flag_flag3		
+8	SetFlag	@flag_flag4		
+8	WriteExpression	x		
+8	WriteExpression	y		
+8	End	0		

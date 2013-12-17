@@ -1,0 +1,13 @@
+ 
+   x:=mod(x,y);
+   write("x mod y = ",x);
+   write("choice 1 2 3: ");
+   read(g);
+   case g of
+        1: write("good ");
+        2: write("better ");
+        3: write("best ")
+   end
+   
+  end
+end.

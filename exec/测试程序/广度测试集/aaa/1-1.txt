@@ -1,0 +1,256 @@
+	.386
+	.MODEL FLAT
+
+option	casemap:none
+includelib	msvcrt.lib
+printf	proto C:dword,:vararg
+scanf	proto C:dword,:vararg
+_ftol	proto C:dword
+
+	.STACK	4096
+
+	.DATA
+inint 	DB "%f",0
+outint 	DB "%.0f",0DH,0AH,0
+inchar 	DB " %c",0
+outchar 	DB "%c",0DH,0AH,0
+infloat 	DB "%f",0
+outfloat 	DB "%g",0DH,0AH,0
+string1	DB "Input del1: ",0DH,0AH,0
+string2	DB "Input del2: ",0DH,0AH,0
+const1_id	DD 1065353216
+const2_id	DD -1027080192
+const3_id	DD 1120010240
+change1_id	DD 0
+change2_id	DD 0
+change3_id	DD 0
+
+	.CODE
+_main:
+
+;Begin	Main		
+push	ebp
+mov	ebp,esp
+sub	esp,24
+push	ebx
+push	esi
+push	edi
+
+;Begin	Main		
+
+;VarDefine	del1		
+
+;VarDefine	del2		
+
+;VarDefine	del3		
+
+;WriteString	string1		
+lea	ecx,string1
+push	ecx
+call	printf
+add	esp,4
+
+;Read	del1		
+lea	eax,dword ptr [ebp-4]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+
+;WriteString	string2		
+lea	ecx,string2
+push	ecx
+call	printf
+add	esp,4
+
+;Read	del2		
+lea	eax,dword ptr [ebp-8]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+
+;value=	del1	var1	gets1
+push	dword ptr [ebp-4]
+
+;value=	const1	var2	gets1
+push	dword ptr const1_id
+
+;CallValue	gets1		#t4
+call	gets1_id
+add	esp,8
+mov	dword ptr [ebp-16],eax
+
+;=	#t4		del1
+fld	dword ptr [ebp-16]
+fstp	dword ptr [ebp-4]
+
+;value=	del2	var1	gets2
+push	dword ptr [ebp-8]
+
+;value=	const2	var3	gets2
+push	dword ptr const2_id
+
+;Call	gets2		
+call	gets2_id
+add	esp,8
+
+;value=	const3	var	gets3
+push	dword ptr const3_id
+
+;CallValue	gets3		#t5
+call	gets3_id
+add	esp,4
+mov	dword ptr [ebp-20],eax
+
+;=	#t5		del3
+fld	dword ptr [ebp-20]
+fstp	dword ptr [ebp-12]
+
+;WriteExpression	del1		
+fld	dword ptr [ebp-4]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;WriteExpression	change2		
+fld	dword ptr change2_id
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+
+;WriteExpression	del3		
+fld	dword ptr [ebp-12]
+fist	dword ptr [ebp-12]
+movsx	ebx,byte ptr [ebp-12]
+push	ebx
+lea	eax,outchar
+push	eax
+call	printf
+add	esp,8
+
+;End	Main		
+F_flag4:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+
+gets1_id	PROC near32
+
+;Begin	gets1		
+push	ebp
+mov	ebp,esp
+sub	esp,16
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+12]
+mov	dword ptr [ebp-4],eax
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-8],eax
+
+;+	var1	var2	#t1
+fld	dword ptr [ebp-4]
+fadd	dword ptr [ebp-8]
+fstp	dword ptr [ebp-12]
+
+;=	#t1		change1
+fld	dword ptr [ebp-12]
+fstp	dword ptr change1_id
+
+;Return	change1		
+mov	eax,dword ptr change1_id
+jmp	F_flag1
+
+;End	gets1		
+F_flag1:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+gets1_id	 ENDP
+
+gets2_id	PROC near32
+
+;Begin	gets2		
+push	ebp
+mov	ebp,esp
+sub	esp,16
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+12]
+mov	dword ptr [ebp-4],eax
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-8],eax
+
+;-	var1	var3	#t2
+fld	dword ptr [ebp-4]
+fsub	dword ptr [ebp-8]
+fstp	dword ptr [ebp-12]
+
+;=	#t2		change2
+fld	dword ptr [ebp-12]
+fstp	dword ptr change2_id
+
+;End	gets2		
+F_flag2:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+gets2_id	 ENDP
+
+gets3_id	PROC near32
+
+;Begin	gets3		
+push	ebp
+mov	ebp,esp
+sub	esp,12
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-4],eax
+
+;+	var	2	#t3
+fld	dword ptr [ebp-4]
+mov	eax,1073741824
+mov	dword ptr [ebp-12],eax
+fadd	dword ptr [ebp-12]
+fstp	dword ptr [ebp-8]
+
+;=	#t3		change3
+fld	dword ptr [ebp-8]
+fstp	dword ptr change3_id
+
+;Return	change3		
+mov	eax,dword ptr change3_id
+jmp	F_flag3
+
+;End	gets3		
+F_flag3:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+gets3_id	 ENDP
+	END	_main
+

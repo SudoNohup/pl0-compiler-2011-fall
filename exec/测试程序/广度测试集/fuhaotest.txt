@@ -1,0 +1,6 @@
+var x,y:integer;
+begin
+	y:=9;
+	x:=-5+8-y;
+	write(x);
+end.

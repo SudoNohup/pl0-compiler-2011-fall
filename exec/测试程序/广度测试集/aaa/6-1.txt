@@ -1,0 +1,384 @@
+	.386
+	.MODEL FLAT
+
+option	casemap:none
+includelib	msvcrt.lib
+printf	proto C:dword,:vararg
+scanf	proto C:dword,:vararg
+_ftol	proto C:dword
+
+	.STACK	4096
+
+	.DATA
+inint 	DB "%f",0
+outint 	DB "%.0f",0DH,0AH,0
+inchar 	DB " %c",0
+outchar 	DB "%c",0DH,0AH,0
+infloat 	DB "%f",0
+outfloat 	DB "%g",0DH,0AH,0
+string1	DB "Input three numbers: ",0DH,0AH,0
+string2	DB "the max : ",0DH,0AH,0
+string3	DB "the base: ",0DH,0AH,0
+string4	DB "the step: ",0DH,0AH,0
+string5	DB "the number: ",0DH,0AH,0
+string6	DB "the result: ",0DH,0AH,0
+string7	DB "input the choice: 1 2 3 , 0 for return ",0DH,0AH,0
+string8	DB "good ",0DH,0AH,0
+string9	DB "better ",0DH,0AH,0
+string10	DB "best ",0DH,0AH,0
+string11	DB "error ",0DH,0AH,0
+const1_id	DD 1065353216
+const2_id	DD -1027080192
+const3_id	DD 1123418112
+const4_id	DD -1012891648
+var1_id	DD 0
+var2_id	DD 0
+var3_id	DD 0
+var4_id	DD 0
+
+	.CODE
+_main:
+push	ebp
+mov	ebp,esp
+sub	esp,60
+push	ebx
+push	esi
+push	edi
+lea	ecx,string1
+push	ecx
+call	printf
+add	esp,4
+lea	eax,dword ptr [ebp-4]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+lea	eax,dword ptr [ebp-8]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+lea	eax,dword ptr [ebp-12]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+push	dword ptr [ebp-4]
+push	dword ptr [ebp-8]
+push	dword ptr [ebp-12]
+call	max_id
+add	esp,12
+mov	dword ptr [ebp-36],eax
+fld	dword ptr [ebp-36]
+fstp	dword ptr var1_id
+lea	ecx,string2
+push	ecx
+call	printf
+add	esp,4
+fld	dword ptr var1_id
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+lea	ecx,string3
+push	ecx
+call	printf
+add	esp,4
+lea	eax,dword ptr [ebp-16]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+lea	ecx,string4
+push	ecx
+call	printf
+add	esp,4
+lea	eax,dword ptr [ebp-20]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+lea	ecx,string5
+push	ecx
+call	printf
+add	esp,4
+lea	eax,dword ptr [ebp-24]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+push	dword ptr [ebp-16]
+push	dword ptr [ebp-20]
+push	dword ptr [ebp-24]
+call	add1_id
+add	esp,12
+mov	dword ptr [ebp-40],eax
+fld	dword ptr [ebp-40]
+fstp	dword ptr [ebp-28]
+lea	ecx,string6
+push	ecx
+call	printf
+add	esp,4
+fld	dword ptr [ebp-28]
+sub	esp,8
+fstp	qword ptr [esp]
+lea	eax,outint
+push	eax
+call	printf
+add	esp,12
+lea	ecx,string7
+push	ecx
+call	printf
+add	esp,4
+lea	eax,dword ptr [ebp-32]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+flag_flag9:
+fld	dword ptr [ebp-32]
+mov	eax,0
+mov	dword ptr [ebp-60],eax
+fcomp	dword ptr [ebp-60]
+fnstsw	ax
+test	ah,40h
+mov	dword ptr [ebp-44],0
+jne	judge_flag1
+mov	dword ptr [ebp-44],1065353216
+judge_flag1:
+cmp	dword ptr [ebp-44],0
+je	flag_flag10
+fld	dword ptr [ebp-32]
+mov	eax,1065353216
+mov	dword ptr [ebp-60],eax
+fcomp	dword ptr [ebp-60]
+fnstsw	ax
+test	ah,40h
+mov	dword ptr [ebp-48],0
+je	judge_flag2
+mov	dword ptr [ebp-48],1065353216
+judge_flag2:
+cmp	dword ptr [ebp-48],0
+je	flag_flag12
+lea	ecx,string8
+push	ecx
+call	printf
+add	esp,4
+jmp	flag_flag11
+flag_flag12:
+fld	dword ptr [ebp-32]
+mov	eax,1073741824
+mov	dword ptr [ebp-60],eax
+fcomp	dword ptr [ebp-60]
+fnstsw	ax
+test	ah,40h
+mov	dword ptr [ebp-52],0
+je	judge_flag3
+mov	dword ptr [ebp-52],1065353216
+judge_flag3:
+cmp	dword ptr [ebp-52],0
+je	flag_flag13
+lea	ecx,string9
+push	ecx
+call	printf
+add	esp,4
+jmp	flag_flag11
+flag_flag13:
+fld	dword ptr [ebp-32]
+mov	eax,1077936128
+mov	dword ptr [ebp-60],eax
+fcomp	dword ptr [ebp-60]
+fnstsw	ax
+test	ah,40h
+mov	dword ptr [ebp-56],0
+je	judge_flag4
+mov	dword ptr [ebp-56],1065353216
+judge_flag4:
+cmp	dword ptr [ebp-56],0
+je	flag_flag14
+lea	ecx,string10
+push	ecx
+call	printf
+add	esp,4
+jmp	flag_flag11
+flag_flag14:
+lea	ecx,string11
+push	ecx
+call	printf
+add	esp,4
+flag_flag11:
+lea	eax,dword ptr [ebp-32]
+push	eax
+lea	eax,inint
+push	eax
+call	scanf
+add	esp,8
+jmp	flag_flag9
+flag_flag10:
+F_flag3:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+
+max_id	PROC near32
+push	ebp
+mov	ebp,esp
+sub	esp,44
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+16]
+mov	dword ptr [ebp-4],eax
+mov	eax,dword ptr [ebp+12]
+mov	dword ptr [ebp-8],eax
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-12],eax
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-8]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-20],0
+jne	judge_flag5
+mov	dword ptr [ebp-20],1065353216
+judge_flag5:
+cmp	dword ptr [ebp-20],0
+je	flag_flag1
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-24],0
+jne	judge_flag6
+mov	dword ptr [ebp-24],1065353216
+judge_flag6:
+cmp	dword ptr [ebp-24],0
+je	flag_flag2
+fld	dword ptr [ebp-4]
+fstp	dword ptr [ebp-16]
+flag_flag2:
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-28],0
+je	judge_flag7
+mov	dword ptr [ebp-28],1065353216
+judge_flag7:
+cmp	dword ptr [ebp-28],0
+je	flag_flag3
+fld	dword ptr [ebp-12]
+fstp	dword ptr [ebp-16]
+flag_flag3:
+flag_flag1:
+fld	dword ptr [ebp-4]
+fcomp	dword ptr [ebp-8]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-32],0
+je	judge_flag8
+mov	dword ptr [ebp-32],1065353216
+judge_flag8:
+cmp	dword ptr [ebp-32],0
+je	flag_flag4
+fld	dword ptr [ebp-8]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-36],0
+jne	judge_flag9
+mov	dword ptr [ebp-36],1065353216
+judge_flag9:
+cmp	dword ptr [ebp-36],0
+je	flag_flag5
+fld	dword ptr [ebp-8]
+fstp	dword ptr [ebp-16]
+flag_flag5:
+fld	dword ptr [ebp-8]
+fcomp	dword ptr [ebp-12]
+fnstsw	ax
+test	ah,1
+mov	dword ptr [ebp-40],0
+je	judge_flag10
+mov	dword ptr [ebp-40],1065353216
+judge_flag10:
+cmp	dword ptr [ebp-40],0
+je	flag_flag6
+fld	dword ptr [ebp-12]
+fstp	dword ptr [ebp-16]
+flag_flag6:
+flag_flag4:
+mov	eax,dword ptr [ebp-16]
+jmp	F_flag1
+F_flag1:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+max_id	 ENDP
+
+add1_id	PROC near32
+push	ebp
+mov	ebp,esp
+sub	esp,28
+push	ebx
+push	esi
+push	edi
+mov	eax,dword ptr [ebp+16]
+mov	dword ptr [ebp-4],eax
+mov	eax,dword ptr [ebp+12]
+mov	dword ptr [ebp-8],eax
+mov	eax,dword ptr [ebp+8]
+mov	dword ptr [ebp-12],eax
+flag_flag7:
+fld	dword ptr [ebp-12]
+mov	eax,0
+mov	dword ptr [ebp-28],eax
+fcomp	dword ptr [ebp-28]
+fnstsw	ax
+test	ah,41h
+mov	dword ptr [ebp-16],0
+jne	judge_flag11
+mov	dword ptr [ebp-16],1065353216
+judge_flag11:
+cmp	dword ptr [ebp-16],0
+je	flag_flag8
+fld	dword ptr [ebp-4]
+fadd	dword ptr [ebp-8]
+fstp	dword ptr [ebp-20]
+fld	dword ptr [ebp-20]
+fstp	dword ptr [ebp-4]
+fld	dword ptr [ebp-12]
+mov	eax,1065353216
+mov	dword ptr [ebp-28],eax
+fsub	dword ptr [ebp-28]
+fstp	dword ptr [ebp-24]
+fld	dword ptr [ebp-24]
+fstp	dword ptr [ebp-12]
+jmp	flag_flag7
+flag_flag8:
+mov	eax,dword ptr [ebp-4]
+jmp	F_flag2
+F_flag2:
+pop	edi
+pop	esi
+pop	ebx
+mov	esp,ebp
+pop	ebp
+ret
+add1_id	 ENDP
+	END	_main
+

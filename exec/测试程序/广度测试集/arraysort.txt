@@ -1,0 +1,26 @@
+var i,j,n:integer;a:array [10] of integer;
+procedure swap(var x,y:integer);
+  var temp:integer;
+  begin
+    temp:=x;
+    x:=y;
+    y:=temp
+  end;
+begin
+	n:=4;
+	a[0]:=1;
+	a[1]:=3;
+	a[2]:=5;
+	a[3]:=4;
+	for i:=0 to n-1 do
+	begin
+		for j:=i+1 to n-1 do
+		begin
+			if a[i]>a[j] then swap(a[i],a[j])
+		end
+	end;
+	write(a[0]);
+	write(a[1]);
+	write(a[2]);
+	write(a[3]);
+end.

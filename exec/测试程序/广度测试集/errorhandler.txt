@@ -1,0 +1,18 @@
+var x,y,g,m:integer;
+    i:integer;
+    a,b:integer;
+begin
+  for i:=3 downto 1 do
+  begin
+   x:=mod(x,y);
+   write("x mod y = ",x);
+   write("choice 1 2 3: ");
+   read(g);
+   case g of
+        1: write("good ");
+        2: write("better ");
+        3: write("best ")
+   end
+   
+  end
+end.
