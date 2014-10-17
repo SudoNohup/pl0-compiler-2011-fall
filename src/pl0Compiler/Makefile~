@@ -7,7 +7,7 @@ EXECUTABLE=Compiler
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE): $(SOURCES) $(HEADERS)
+$(EXECUTABLE): $(SOURCES)
 	$(CC) $(CFLAGS) $(SOURCES) -o $@
 
 clean:

@@ -1,0 +1,25 @@
+Begin	2		
+:=	m		d
+:=	2		c
+WriteExpression	d		
+End	2		
+Begin	1		
+Display	1	2	
+Call	2		
+:=	3		proc1
+:=	4		b
+End	1		
+Begin	0		
+:=	1		c
+Display	0	1	
+value=	c	a	1
+value=	e	b	1
+CallValue	1		#t1
+-	1	#t1	#t2
++	#t2	3	#t3
+:=	#t3		james
+WriteExpression	m		
+WriteExpression	c		
+WriteExpression	e		
+WriteExpression	james		
+End	0		

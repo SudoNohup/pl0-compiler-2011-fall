@@ -32,5 +32,6 @@ public:
 	void activeVarBegin();
 	bool activeVarExists(string s);
 	//void conflictGraghBuilt();
+	//void 
 };
 

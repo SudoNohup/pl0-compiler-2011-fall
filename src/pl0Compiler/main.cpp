@@ -74,7 +74,7 @@ int main()
 	if(OptMode>=0)
 	{
 		freopen("MiddleCode(Kuikong).txt","w",stdout);
-		cout<<"窥孔优化后的中间代码如下："<<endl;
+		cout<<"The intermediate code after the optimization is as the follows:"<<endl;
 		myKuikong.Kuikonginit();
 	}
 

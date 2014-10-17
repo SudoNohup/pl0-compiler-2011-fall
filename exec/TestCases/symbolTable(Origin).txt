@@ -1,0 +1,27 @@
+procID:0	procName:Main	procKind:8
+ArgNum:0	lev:0	Outfunc:-1
+tableContext:
+id	name	kind	value	isnotadr	dim	
+0	m	1	114	1	1
+1	james	2	0	1	1
+2	c	2	0	1	1
+3	e	2	0	1	1
+4	proc1	6	0	1	1
+5	#t1	2	0	1	1
+6	#t2	2	0	1	1
+7	#t3	2	0	1	1
+
+procID:1	procName:proc1	procKind:6
+ArgNum:2	lev:1	Outfunc:0
+tableContext:
+id	name	kind	value	isnotadr	dim	
+0	a	2	0	0	1
+1	b	2	0	0	1
+2	proc2	8	0	1	1
+
+procID:2	procName:proc2	procKind:8
+ArgNum:0	lev:2	Outfunc:1
+tableContext:
+id	name	kind	value	isnotadr	dim	
+0	d	2	0	1	1
+
