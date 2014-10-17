@@ -50,7 +50,7 @@ public:
 	void ifState(int lastProcNum);//条件语句
 	string condition(int lastProcNum);//条件
 	void caseState(int lastProcNum);//情况语句
-	void Parser::situationTable(int lastProcNum,string target,string flag);//,string smallflag);//情况表元素
+	void situationTable(int lastProcNum,string target,string flag);//,string smallflag);//情况表元素
 	void forState(int lastProcNum);//for循环语句
 	void readState(int lastProcNum);//读语句
 	void writeState(int lastProcNum);//写语句

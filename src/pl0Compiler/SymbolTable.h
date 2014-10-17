@@ -62,19 +62,19 @@ public:
 	//static int number;
 	void initSymbolTable();//初始化符号表
 	void addNewItem(int procNum,string name,kindType kind,int value);//在符号表procNum的函数/过程中增加新的符号（标识符）
-	void SymbolTable::addNewContext(string name,kindType kind,int nowProcNum);//增加新的函数/过程，即新建SymTableContext类
-	//int SymbolTable::getProcIndex(string name);
-	//int SymbolTable::getProcArgIndex(int index,string id);
-	int SymbolTable::getCurProcIndex(int ProcNum,string name);//获取当前函数/过程的索引（即位置）
-	//int SymbolTable::getCurProcArgIndex(int index,string id);//获取当前函数的参数
-	kindType SymbolTable::canWrite(int procNum,string name);//获取标识符是否可以赋值以及类型的信息
-	kindType SymbolTable::canRead(int procNum,string name);//获取标识符是否可以读取值以及类型的信息
-	kindType SymbolTable::isProcRead(int procNum,string name);//获取函数/过程是否可以调用
-	kindType SymbolTable::canUse(int procNum,string name);//获取标识符是否可以使用以及类型的信息
-	string SymbolTable::getProcArg(int procIndex,string name,int index);//获取函数的形式参数名
-	int SymbolTable::getProcIndexRead(int procNum,string name);//获取可调用函数的位置
-	void SymbolTable::addNewPrintString(string s);//增加打印的字符串
-	void SymbolTable::showTable(int procNum);//打印符号表
-	void SymbolTable::getIdNameAdr(int procNum,string name,int &BL,int &ON);//从当前函数/过程获取可以使用的符号（本层或者外层）的位置信息(二维)
-	int SymbolTable::dimCount(int procNum,int idIndex);//获取符号表中某位置之前已使用空间(汇编中计算[ebp+?]使用)
+	void addNewContext(string name,kindType kind,int nowProcNum);//增加新的函数/过程，即新建SymTableContext类
+	//int getProcIndex(string name);
+	//int getProcArgIndex(int index,string id);
+	int getCurProcIndex(int ProcNum,string name);//获取当前函数/过程的索引（即位置）
+	//int getCurProcArgIndex(int index,string id);//获取当前函数的参数
+	kindType canWrite(int procNum,string name);//获取标识符是否可以赋值以及类型的信息
+	kindType canRead(int procNum,string name);//获取标识符是否可以读取值以及类型的信息
+	kindType isProcRead(int procNum,string name);//获取函数/过程是否可以调用
+	kindType canUse(int procNum,string name);//获取标识符是否可以使用以及类型的信息
+	string getProcArg(int procIndex,string name,int index);//获取函数的形式参数名
+	int getProcIndexRead(int procNum,string name);//获取可调用函数的位置
+	void addNewPrintString(string s);//增加打印的字符串
+	void showTable(int procNum);//打印符号表
+	void getIdNameAdr(int procNum,string name,int &BL,int &ON);//从当前函数/过程获取可以使用的符号（本层或者外层）的位置信息(二维)
+	int dimCount(int procNum,int idIndex);//获取符号表中某位置之前已使用空间(汇编中计算[ebp+?]使用)
 };

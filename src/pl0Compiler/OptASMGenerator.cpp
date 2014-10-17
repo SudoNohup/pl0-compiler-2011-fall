@@ -1,4 +1,5 @@
-#include "stdio.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "OptASMGenerator.h"
 #include "GlobalData.h"
 #include "SymbolTable.h"

@@ -40,14 +40,14 @@ public:
 	void symbolAdrByte(int procIndex,string s,string reg);//读字符专用
 	string GetMemSymbol(int procIndex,string s);
 	int GetSymbol(int procIndex,string s,string &temps);
-	string OptASMGenerator::GetSymbolAdr(int procIndex,string s);
-	bool OptASMGenerator::isInReg(string s);
-	int OptASMGenerator::GotWholeReg(int procIndex,string s);
-	int OptASMGenerator::OccupyReg(int procIndex,string s);
-	void OptASMGenerator::movToMem(int procIndex,int i);
-	void OptASMGenerator::logOutReg(int procIndex);
-	string OptASMGenerator::AssignReg(int procIndex,string a,string b,string c);
-	void OptASMGenerator::setGlobalOK(int ok);
+	string GetSymbolAdr(int procIndex,string s);
+	bool isInReg(string s);
+	int GotWholeReg(int procIndex,string s);
+	int OccupyReg(int procIndex,string s);
+	void movToMem(int procIndex,int i);
+	void logOutReg(int procIndex);
+	string AssignReg(int procIndex,string a,string b,string c);
+	void setGlobalOK(int ok);
 	static int GlobalOK;//全局寄存器优化开关
 	static string prefix;
 	static int codePoint1;

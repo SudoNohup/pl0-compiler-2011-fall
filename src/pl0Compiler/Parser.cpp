@@ -1,7 +1,8 @@
 #include "Parser.h"
 #include "GlobalData.h"
-#include<stdlib.h>
-#include<strstream>
+#include <stdlib.h>
+#include <strstream>
+#include <stdio.h>
 
 #include "iostream"
 
@@ -77,7 +78,7 @@ void Parser::program()
 		myErrorHandler.parserError(myLexer.x(),myLexer.y(),"程序中没有结尾.");
 	}
 
-	printf("程序语法分析结束\n");
+	printf("paser finished\n");
 }
 
 

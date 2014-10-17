@@ -1,3 +1,5 @@
+#include<stdio.h>
+#include<stdlib.h>
 #include "DAG.h"
 #include "GlobalData.h"
 #include <iostream>

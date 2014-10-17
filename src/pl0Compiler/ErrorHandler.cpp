@@ -1,6 +1,7 @@
 #include "ErrorHandler.h"
 #include "GlobalData.h"
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 

@@ -10,11 +10,11 @@ public:
 	//ErrorHandler();
 	static int errorTot;//错误总数
 	int isType(string s);//记录是否是类型
-	int ErrorHandler::isAllStartMark(string s);
-	int ErrorHandler::isStartMark1(string s);
-	int ErrorHandler::isStartMark2(string s);
-	int ErrorHandler::isStartMark3(string s);
-	int ErrorHandler::isbaseType(string s);
+	int isAllStartMark(string s);
+	int isStartMark1(string s);
+	int isStartMark2(string s);
+	int isStartMark3(string s);
+	int isbaseType(string s);
 	void lexerError(int x,int y,string message);//词法分析错误处理程序
 	void parserError(int x,int y,string message);//语法分析错误处理程序
 	void declareError(int x,int y,string message);//语义分析错误处理程序

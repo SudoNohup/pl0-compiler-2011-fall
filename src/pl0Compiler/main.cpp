@@ -9,14 +9,14 @@ using namespace std;
 int main()
 {
 	int i,OptMode=0;
-	cout<<"请输入源文件名："<<endl;
+	cout<<"Please input the source file name:"<<endl;
 
 	//normal
 	
 	cin>>sourcefileName;
-	cout<<"请选择模式(输入OptMode的值)："<<endl;
-	cout<<"OptMode：\t\n-1	不做优化\t\n0	窥孔优化\t\n1	+DAG图（消除公共子表达式）";
-	cout<<"\t\n2	+全局数据流分析,局部寄存器池优化\t\n3	+构建冲突图，图着色算法，全局寄存器池优化"<<endl;
+	cout<<"Please input the OptMode"<<endl;
+	cout<<"OptMode:\t\n-1  No Optimization\t\n0	Peephole Optimization\t\n1	+DAG (Eliminate the common subexpression)";
+	cout<<"\t\n2	+Local Register Allocation Optimization with Global Data Flow Analysis\t\n3	+Global Register Allocation Optimization with Constructing Conflict Graph and Heuristic Graph Coloring Algorithm"<<endl;
 	cin>>OptMode;
 
 	int len=strlen(sourcefileName);
